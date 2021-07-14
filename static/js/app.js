@@ -60,9 +60,11 @@ function filterTable() {
 
   // 9. Loop through all of the filters and keep any data that
   // matches the filter values
-  if (filters) {
-    filteredData = filteredData.filter(row => row.filterId === filters);
-  } 
+  data.forEach((_dataRow) => {
+  });
+    Object.entries(filters).forEach((val) => {
+      if (val) {filteredData = filteredData.filter(row => row.filterId === val);
+      }});
 
   // 10. Finally, rebuild the table using the filtered data
   buildTable(filteredData);
@@ -72,4 +74,4 @@ function filterTable() {
 d3.selectAll("input").on("change", updateFilters);
 
 // Build the table when the page loads
-buildTable(tableData);
+buildTable(tableData)
