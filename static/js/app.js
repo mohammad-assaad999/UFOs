@@ -62,20 +62,35 @@ function filterTable(id,input) {
   // matches the filter values
 
   if (id="datetime"){
+    console.log("before DT", filteredData);
     filteredData= filteredData.filter(row=>row["datetime"]==input)
+    console.log("AFTER DT", filteredData);
+
   }  
   if (id="city"){
+    console.log("before City", filteredData)
     filteredData= filteredData.filter(row=>row["city"]==input)
+    console.log("AFTER City", filteredData);
+
   } 
   if (id="state"){
+    console.log("before State", filteredData);
     filteredData= filteredData.filter(row=>row["state"]==input)
+    console.log("After State", filteredData);
+
   } 
-  if (id="country"){
+  if (id="country"){    
+    console.log("before Country", filteredData);
     filteredData= filteredData.filter(row=>row["country"]==input)
+    console.log("After Country", filteredData);
+
   } 
   if (id="shape"){
+    console.log("before shape", filteredData);    
     filteredData= filteredData.filter(row=>row["shape"]==input)
-  } 
+    console.log("After shape", filteredData);
+
+  }  
   
   // 10. Finally, rebuild the table using the filtered data
   buildTable(filteredData);
