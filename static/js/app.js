@@ -60,12 +60,15 @@ function filterTable() {
 
   // 9. Loop through all of the filters and keep any data that
   // matches the filter values
-  data.forEach((_dataRow) => {
+  data.forEach(filters => {
+  let row = tbody.append('tr');
+  Object.entries(filters).forEach(([key,value]) => {
+    console.log(key,value);
+    let cell = row.append('td');
+    cell.text(value);
+    });
   });
-    Object.entries(filters).forEach((val) => {
-      if (val) {filteredData = filteredData.filter(row => row.filterId === val);
-      }});
-
+  
   // 10. Finally, rebuild the table using the filtered data
   buildTable(filteredData);
 }
