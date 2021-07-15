@@ -53,44 +53,16 @@ console.log(filters)
 }
 
 // 7. Use this function to filter the table when data is entered.
-function filterTable(id,input) {
+function filterTable() {
 
   // 8. Set the filtered data to the tableData.
   let filteredData = tableData;
 
   // 9. Loop through all of the filters and keep any data that
   // matches the filter values
-
-  if (id="datetime"){
-    console.log("before DT", filteredData);
-    filteredData= filteredData.filter(row=>row["datetime"]==input)
-    console.log("AFTER DT", filteredData);
-
-  }  
-  if (id="city"){
-    console.log("before City", filteredData)
-    filteredData= filteredData.filter(row=>row["city"]==input)
-    console.log("AFTER City", filteredData);
-
-  } 
-  if (id="state"){
-    console.log("before State", filteredData);
-    filteredData= filteredData.filter(row=>row["state"]==input)
-    console.log("After State", filteredData);
-
-  } 
-  if (id="country"){    
-    console.log("before Country", filteredData);
-    filteredData= filteredData.filter(row=>row["country"]==input)
-    console.log("After Country", filteredData);
-
-  } 
-  if (id="shape"){
-    console.log("before shape", filteredData);    
-    filteredData= filteredData.filter(row=>row["shape"]==input)
-    console.log("After shape", filteredData);
-
-  }  
+  Object.entries(filters).forEach(([key, value]) => {
+    filteredData = filteredData.filter(row => row[key] === value);
+  });
   
   // 10. Finally, rebuild the table using the filtered data
   buildTable(filteredData);
